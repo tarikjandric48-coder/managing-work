@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prolife suspenzija – paket za sajt</title>
+<style>
+  :root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5b6572;--line:#d9dee5;--zel:#12974A;--pl:#21225F;--upoz:#fff4d6;--upozl:#e0b43a}
+  @media (prefers-color-scheme:dark){:root{--bg:#14171b;--card:#1d2127;--tx:#e8ebef;--mut:#9aa5b1;--line:#2f353d;--upoz:#3a3115;--upozl:#8a6f1f}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:16px}
+  main{max-width:860px;margin:0 auto}
+  h1{font-size:22px;margin:8px 0 4px;color:var(--pl)}
+  @media (prefers-color-scheme:dark){h1{color:#aab0ff}}
+  h2{font-size:17px;margin:0 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
+  .upoz{background:var(--upoz);border:1px solid var(--upozl)}
+  .mut{color:var(--mut);font-size:14px}
+  label{display:block;font-weight:600;margin:12px 0 4px}
+  textarea,input[type=text]{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--tx)}
+  textarea{min-height:64px;resize:vertical}
+  textarea.dug{min-height:340px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace}
+  .red{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
+  button{font:inherit;font-weight:600;padding:8px 14px;border:0;border-radius:6px;background:var(--zel);color:#fff;cursor:pointer}
+  button.sek{background:transparent;color:var(--tx);border:1px solid var(--line)}
+  .br{font-size:13px;color:var(--mut)}
+  .br.lose{color:#c0392b;font-weight:700}
+  table{border-collapse:collapse;width:100%;font-size:14px}
+  th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+  ol{padding-left:20px;margin:6px 0}
+  li{margin:4px 0}
+  code{background:var(--bg);padding:1px 5px;border-radius:4px}
+  .pregled{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin-top:8px;max-height:420px;overflow:auto}
+  .pregled table{font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>Prolife suspenzija – paket za sajt</h1>
+<p class="mut">Gotovi tekstovi za jedan proizvod. Svako polje ima dugme „Kopiraj". Redosled unosa je pod „Koraci u adminu".</p>
+
+<section class="card upoz">
+  <h2>Proveri pre objave – sastav nije potvrđen</h2>
+  <p>Našao sam <b>dve različite deklaracije</b> za proizvod istog imena. Na kutiji koju imaš (ili u portalu Phoenixa/Sopharme) proveri koja je tvoja:</p>
+  <table>
+    <tr><th></th><th>Varijanta A (srpske apoteke: Benu, Janković)</th><th>Varijanta B (hrvatske i bosanske apoteke)</th></tr>
+    <tr><td>Proizvođač</td><td>Zeta Farmaceutici</td><td>Jadran-galenski laboratorij (JGL), Hrvatska</td></tr>
+    <tr><td>Sojevi</td><td>L. acidophilus La-14, B. coagulans BC4, B. lactis HN019, B. lactis Bl-04, L. plantarum LP115</td><td>B. coagulans, L. acidophilus, S. thermophilus, L. bulgaricus, B. bifidum + ekstrakt kvasca</td></tr>
+    <tr><td>Pakovanje</td><td>7 bočica, negde piše 10 ml, negde 8 ml</td><td>7 bočica po 10 ml</td></tr>
+  </table>
+  <p class="mut">Tekstovi ispod su pisani po varijanti A. Ako kutija pokazuje B, zameni samo red „Sojevi" i proizvođača. Mesta označena sa <code>[PROVERI …]</code> moraju da se popune sa kutije ili sa sajta proizvođača. <b>Ne objavljuj dok u opisu ostane ijedna zagrada.</b></p>
+  <div class="red"><button id="proveri">Proveri opis</button><span id="rez" class="br"></span></div>
+</section>
+
+<section class="card">
+  <h2>Osnovni podaci</h2>
+  <div id="osnovno"></div>
+</section>
+
+<section class="card">
+  <h2>Opis proizvoda (HTML)</h2>
+  <p class="mut">U adminu klikni na karticu <b>Tekst</b> (ne „Vizuelno") pa nalepi.</p>
+  <div id="opisbox"></div>
+  <details><summary>Pregled kako će izgledati</summary><div class="pregled" id="pregled"></div></details>
+</section>
+
+<section class="card">
+  <h2>SEO (Yoast) i slika</h2>
+  <div id="seo"></div>
+  <p class="mut">Slika: 800 × 800, bela pozadina, proizvod na 76 % kadra. Napravi je alatom <code>slika-800.html</code> iz iste fascikle.</p>
+</section>
+
+<section class="card">
+  <h2>Koraci u adminu</h2>
+  <ol>
+    <li><b>Proizvodi → Dodaj novi.</b> Nalepi naziv.</li>
+    <li>U velikom polju za opis klikni na <b>Tekst</b> i nalepi HTML opis.</li>
+    <li><b>Podaci o proizvodu → Opšte → Redovna cena:</b> upiši <code>1299</code>. Polje „Akcijska cena" ostavi prazno (osim ako ide kao sniženje, tada treba nova odluka o nivelaciji).</li>
+    <li><b>Inventar:</b> status zaliha „Na stanju".</li>
+    <li><b>Kratak opis:</b> nalepi kratak opis.</li>
+    <li><b>Kategorija:</b> izaberi iz liste (verovatno „Stomak varenje i jetra").</li>
+    <li><b>Brend:</b> u listi brendova nema ni Zeta Farmaceutici ni JGL. Ostavi prazno ili dodaj novi brend kad potvrdiš proizvođača.</li>
+    <li><b>Slika proizvoda → Postavi sliku proizvoda:</b> otpremi JPG 800 × 800, u desnom stupcu upiši <b>Alternativni tekst</b> i <b>Naslov</b> (ispod), pa „Postavi sliku proizvoda".</li>
+    <li><b>Yoast SEO (kutija ispod opisa):</b> fokusna ključna reč, SEO naslov i meta opis. Proveri da je adresa (slug) <code>prolife-suspenzija-7-bocica</code>.</li>
+    <li>Klikni <b>Objavi</b>, pa otvori <code>/proizvod/prolife-suspenzija-7-bocica/</code> i proveri cenu, sliku i opis.</li>
+  </ol>
+</section>
+</main>
+
+<script>
+const D = {
+  naziv: "Prolife suspenzija 7 bočica",
+  slug: "prolife-suspenzija-7-bocica",
+  cena: "1299",
+  kratak: "Dodatak ishrani sa živim bakterijskim kulturama i vitaminima B grupe. Pakovanje od 7 bočica, jedna bočica dnevno.",
+  seoNaslov: "Prolife suspenzija probiotik 7 bočica – cena",
+  meta: "Prolife suspenzija: 7 bočica sa 2,1 milijardi živih bakterija i vitaminima B grupe. Jedna bočica dnevno. Isporuka 1-3 radna dana.",
+  fokus: "prolife suspenzija",
+  alt: "Prolife suspenzija probiotik, pakovanje od 7 bočica",
+  naslovSlike: "Prolife suspenzija 7 bočica",
+  fajl: "prolife-suspenzija-7-bocica.jpg",
+  opis: `<p>Prolife suspenzija je dodatak ishrani u obliku tečnosti u bočici, sa živim bakterijskim kulturama i vitaminima B grupe. Pakovanje sadrži 7 bočica, što je dovoljno za 7 dana svakodnevne upotrebe.</p>
+
+<h2>Kome je namenjena Prolife suspenzija</h2>
+<p>Namenjena je odraslima i deci za svakodnevnu upotrebu, na primer kad se menja ishrana, na putovanju ili u periodu kad se uzima antibiotska terapija. Prema uputstvu proizvođača, može se uzimati uz antibiotike.</p>
+
+<h2>Sastav</h2>
+<table>
+<thead><tr><th>Sastojak</th><th>Količina po bočici ([PROVERI: 10 ml ili 8 ml])</th></tr></thead>
+<tbody>
+<tr><td>Žive bakterijske kulture</td><td>najmanje 2,1 milijardi (2,1 × 10⁹) živih ćelija</td></tr>
+<tr><td>Sojevi</td><td>Lactobacillus acidophilus La-14, Bacillus coagulans BC4, Bifidobacterium lactis HN019, Bifidobacterium lactis Bl-04, Lactobacillus plantarum LP115 [PROVERI NA KUTIJI]</td></tr>
+<tr><td>Glukooligosaharidi</td><td>[PROVERI: količina]</td></tr>
+<tr><td>Vitamin B1 (tiamin)</td><td>[PROVERI: mg i % NRV]</td></tr>
+<tr><td>Vitamin B2 (riboflavin)</td><td>[PROVERI: mg i % NRV]</td></tr>
+<tr><td>Vitamin B6</td><td>[PROVERI: mg i % NRV]</td></tr>
+<tr><td>Vitamin B12</td><td>[PROVERI: µg i % NRV]</td></tr>
+</tbody>
+</table>
+
+<h2>Šta doprinose vitamini B grupe</h2>
+<p>Vitamini B1 i B2 doprinose normalnom energetskom metabolizmu. Vitamini B6 i B12 doprinose normalnoj funkciji imunog sistema i smanjenju umora i malaksalosti.</p>
+<p>Za žive bakterijske kulture i glukooligosaharide nema odobrenih zdravstvenih tvrdnji, pa ih opisujemo samo činjenično, bez obećanja o dejstvu.</p>
+
+<h2>Kako se koristi</h2>
+<p>Jedna bočica dnevno. [PROVERI: uputstvo o vremenu uzimanja, natašte ili posle obroka, jer se u izvorima razlikuje.] Deci do dve godine daje se pola sadržaja bočice, a ostatak se čuva u frižideru do sutradan [PROVERI NA UPUTSTVU]. Jedno pakovanje traje 7 dana.</p>
+
+<h2>Česta pitanja</h2>
+<h3>Može li se uzimati uz antibiotik?</h3>
+<p>Prema uputstvu proizvođača, može se primenjivati uz antibiotsku terapiju. Ako uzimate antibiotik, posavetujte se sa farmaceutom ili lekarom.</p>
+<h3>Da li sadrži gluten i laktozu?</h3>
+<p>Prema podacima proizvođača, ne sadrži gluten ni laktozu.</p>
+<h3>Kako se čuva?</h3>
+<p>[PROVERI NA KUTIJI: uslovi čuvanja i rok trajanja posle otvaranja]</p>
+
+<h2>Napomene</h2>
+<p>Dodatak ishrani nije zamena za raznovrsnu ishranu i zdrav način života. Ne prekoračujte preporučenu dnevnu dozu. Ne služi za lečenje bolesti i ne prekidajte terapiju koju vam je propisao lekar. Osobe sa teškim bolestima ili oslabljenim imunitetom neka se pre upotrebe posavetuju sa lekarom (savet apoteke). Čuvati van domašaja dece.</p>
+
+<h2>Pakovanje i proizvođač</h2>
+<p>Pakovanje: 7 bočica. Proizvođač: [PROVERI: Zeta Farmaceutici ili Jadran-galenski laboratorij]. Uvoznik za Srbiju: [PROVERI NA KUTIJI].</p>
+
+<h2>Isporuka</h2>
+<p>Isporuka na teritoriji Srbije u roku od 1 do 3 radna dana (AKS Express, Daily Express, X Express). Dostava košta 400 dinara, a besplatna je za porudžbine preko 5.000 dinara. Za savet farmaceuta pozovite +381 60 6616654.</p>`
+};
+
+function polje(host, id, label, tip, dug, maks) {
+  const w = document.createElement('div');
+  w.innerHTML = '<label for="' + id + '">' + label + '</label>';
+  const el = document.createElement(tip === 'ta' ? 'textarea' : 'input');
+  el.id = id; if (tip !== 'ta') el.type = 'text';
+  el.value = D[id];
+  if (dug) el.className = 'dug';
+  w.appendChild(el);
+  const r = document.createElement('div'); r.className = 'red';
+  const b = document.createElement('button'); b.textContent = 'Kopiraj';
+  b.onclick = () => kopiraj(el, b);
+  r.appendChild(b);
+  if (maks) {
+    const c = document.createElement('span'); c.className = 'br';
+    const upd = () => { const n = el.value.length; c.textContent = n + ' / ' + maks + ' znakova'; c.className = 'br' + (n > maks ? ' lose' : ''); };
+    upd(); r.appendChild(c);
+  }
+  w.appendChild(r); host.appendChild(w);
+}
+function kopiraj(el, b) {
+  const gotovo = () => { const t = b.textContent; b.textContent = 'Kopirano ✓'; setTimeout(() => b.textContent = t, 1400); };
+  el.focus(); el.select();
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(el.value).then(gotovo, () => { document.execCommand('copy'); gotovo(); });
+  } else { document.execCommand('copy'); gotovo(); }
+}
+
+const o = document.getElementById('osnovno');
+polje(o, 'naziv', 'Naziv proizvoda');
+polje(o, 'slug', 'Adresa (slug)');
+polje(o, 'cena', 'Redovna cena (RSD)');
+polje(o, 'kratak', 'Kratak opis', 'ta');
+polje(document.getElementById('opisbox'), 'opis', 'Opis', 'ta', true);
+const s = document.getElementById('seo');
+polje(s, 'seoNaslov', 'SEO naslov (Yoast)', 'in', false, 62);
+polje(s, 'meta', 'Meta opis (Yoast)', 'ta', false, 155);
+polje(s, 'fokus', 'Fokusna ključna reč');
+polje(s, 'alt', 'Alternativni tekst slike (alt)');
+polje(s, 'naslovSlike', 'Naslov slike');
+polje(s, 'fajl', 'Naziv fajla slike');
+document.getElementById('pregled').innerHTML = D.opis;
+
+document.getElementById('proveri').onclick = () => {
+  const n = (document.getElementById('opis').value.match(/\[PROVERI/g) || []).length;
+  const r = document.getElementById('rez');
+  r.className = 'br' + (n ? ' lose' : '');
+  r.textContent = n ? 'Još ' + n + ' mesta za proveru. Ne objavljuj.' : 'Nema oznaka za proveru.';
+};
+</script>
+</body>
+</html>
