@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Slika proizvoda 800×800</title>
+<title>Slika proizvoda za sajt</title>
 <style>
   :root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5b6572;--line:#d9dee5;--zel:#12974A;--pl:#21225F}
   @media (prefers-color-scheme:dark){:root{--bg:#14171b;--card:#1d2127;--tx:#e8ebef;--mut:#9aa5b1;--line:#2f353d}}
@@ -17,23 +17,25 @@
   #zona{border:2px dashed var(--line);border-radius:10px;padding:28px 12px;text-align:center;cursor:pointer}
   #zona.nad{border-color:var(--zel)}
   label{display:block;font-weight:600;margin:12px 0 4px}
-  input[type=text]{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--tx)}
+  input[type=text],select{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--tx)}
   input[type=range]{width:100%}
   button{font:inherit;font-weight:600;padding:10px 16px;border:0;border-radius:6px;background:var(--zel);color:#fff;cursor:pointer}
   button[disabled]{opacity:.45;cursor:default}
-  #platno{width:100%;max-width:400px;aspect-ratio:1;border:1px solid var(--line);border-radius:8px;display:block;margin:8px auto;background:#fff}
+  #platno{width:100%;max-width:420px;aspect-ratio:1;border:1px solid var(--line);border-radius:8px;display:block;margin:8px auto;background:#fff}
   #izv{font-size:14px;color:var(--mut);text-align:center}
   .upoz{color:#b9770e}
 </style>
 </head>
 <body>
 <main>
-<h1>Slika proizvoda 800 × 800</h1>
-<p class="mut">Standard sajta: 800 × 800 piksela, bela pozadina, proizvod automatski isečen i skaliran na 76 % kadra, na sredini. Sve se radi u tvom pregledaču, slika se nigde ne šalje.</p>
+<h1>Slika proizvoda za sajt</h1>
+<p class="mut">Pravi kvadratnu sliku na beloj pozadini: proizvod se automatski iseče, skalira na 76 % kadra i postavi na sredinu. Sve se radi u tvom pregledaču, slika se nigde ne šalje.</p>
 
 <div class="card">
   <div id="zona">Prevuci sliku ovde ili klikni da je izabereš</div>
   <input id="fajl-ulaz" type="file" accept="image/*" hidden>
+  <label for="vel">Veličina</label>
+  <select id="vel"><option value="1024" selected>1024 × 1024 (veličina na sajtu)</option><option value="800">800 × 800</option></select>
   <label for="nazivf">Naziv fajla</label>
   <input id="nazivf" type="text" value="prolife-suspenzija-7-bocica">
   <label for="rot">Nagib (stepeni): <span id="rotv">0</span></label>
@@ -42,7 +44,7 @@
 </div>
 
 <div class="card">
-  <canvas id="platno" width="800" height="800"></canvas>
+  <canvas id="platno" width="1024" height="1024"></canvas>
   <div id="izv">Još nema slike.</div>
   <p style="text-align:center"><button id="snimi" disabled>Preuzmi JPG</button></p>
   <p class="mut upoz">Radi samo kad je pozadina bela ili providna. Ako slika ima fotografsku pozadinu (daska, tkanina, senke), nađi zvaničnu sliku proizvoda na sajtu proizvođača.</p>
@@ -50,9 +52,10 @@
 </main>
 
 <script>
-const S = 800, UDEO = 0.76;
+const UDEO = 0.76;
+let S = 1024;
 const zona = document.getElementById('zona'), ulaz = document.getElementById('fajl-ulaz');
-const rot = document.getElementById('rot'), rotv = document.getElementById('rotv');
+const rot = document.getElementById('rot'), rotv = document.getElementById('rotv'), vel = document.getElementById('vel');
 const platno = document.getElementById('platno'), ctx = platno.getContext('2d');
 const izv = document.getElementById('izv'), snimi = document.getElementById('snimi');
 let slika = null;
@@ -66,6 +69,7 @@ zona.ondragleave = () => zona.classList.remove('nad');
 zona.ondrop = e => { e.preventDefault(); zona.classList.remove('nad'); if (e.dataTransfer.files[0]) ucitaj(e.dataTransfer.files[0]); };
 ulaz.onchange = () => { if (ulaz.files[0]) ucitaj(ulaz.files[0]); };
 rot.oninput = () => { rotv.textContent = rot.value; if (slika) crtaj(); };
+vel.onchange = () => { S = +vel.value; platno.width = S; platno.height = S; bela(); if (slika) crtaj(); };
 
 function ucitaj(f) {
   const url = URL.createObjectURL(f);
@@ -105,7 +109,8 @@ function crtaj() {
   ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
   ctx.drawImage(t, x0, y0, bw, bh, (S - dw) / 2, (S - dh) / 2, dw, dh);
   const udeo = Math.max(dw / S, dh / S) * 100;
-  izv.textContent = 'Kadar 800 × 800. Proizvod zauzima ' + udeo.toFixed(0) + ' % kadra.';
+  izv.textContent = 'Kadar ' + S + ' × ' + S + '. Proizvod zauzima ' + udeo.toFixed(0) + ' % kadra.'
+    + (k > 1.5 ? ' Slika je uvećana ' + k.toFixed(1) + '×, pa može biti malo mekša.' : '');
   snimi.disabled = false;
 }
 

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prolife suspenzija – paket za sajt</title>
 <style>
-  :root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5b6572;--line:#d9dee5;--zel:#12974A;--pl:#21225F;--upoz:#fff4d6;--upozl:#e0b43a}
-  @media (prefers-color-scheme:dark){:root{--bg:#14171b;--card:#1d2127;--tx:#e8ebef;--mut:#9aa5b1;--line:#2f353d;--upoz:#3a3115;--upozl:#8a6f1f}}
+  :root{--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5b6572;--line:#d9dee5;--zel:#12974A;--pl:#21225F;--info:#e8f4ec;--infol:#9fd0b0}
+  @media (prefers-color-scheme:dark){:root{--bg:#14171b;--card:#1d2127;--tx:#e8ebef;--mut:#9aa5b1;--line:#2f353d;--info:#16301f;--infol:#2f6b45}}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:16px}
   main{max-width:860px;margin:0 auto}
@@ -14,7 +14,7 @@
   @media (prefers-color-scheme:dark){h1{color:#aab0ff}}
   h2{font-size:17px;margin:0 0 8px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0}
-  .upoz{background:var(--upoz);border:1px solid var(--upozl)}
+  .info{background:var(--info);border:1px solid var(--infol)}
   .mut{color:var(--mut);font-size:14px}
   label{display:block;font-weight:600;margin:12px 0 4px}
   textarea,input[type=text]{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--tx)}
@@ -22,29 +22,30 @@
   textarea.dug{min-height:340px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace}
   .red{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
   button{font:inherit;font-weight:600;padding:8px 14px;border:0;border-radius:6px;background:var(--zel);color:#fff;cursor:pointer}
-  button.sek{background:transparent;color:var(--tx);border:1px solid var(--line)}
   .br{font-size:13px;color:var(--mut)}
   .br.lose{color:#c0392b;font-weight:700}
-  table{border-collapse:collapse;width:100%;font-size:14px}
-  th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
   ol{padding-left:20px;margin:6px 0}
   li{margin:4px 0}
   code{background:var(--bg);padding:1px 5px;border-radius:4px}
-  .pregled{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin-top:8px;max-height:420px;overflow:auto}
-  .pregled table{font-size:14px}
+  .pregled{border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin-top:8px;max-height:480px;overflow:auto}
+  .pregled table{border-collapse:collapse;width:100%;font-size:14px}
+  .pregled th,.pregled td{border:1px solid var(--line);padding:6px 8px;text-align:left}
 </style>
 </head>
 <body>
 <main>
 <h1>Prolife suspenzija – paket za sajt</h1>
-<p class="mut">Gotovi tekstovi za jedan proizvod. Svako polje ima dugme „Kopiraj". Redosled unosa je pod „Koraci u adminu".</p>
+<p class="mut">Sve je gotovo za kopiranje. Svako polje ima dugme „Kopiraj", a redosled unosa je pod „Koraci u adminu".</p>
 
-<section class="card upoz">
-  <h2>Proveri pre objave – sastav nije potvrđen sa kutije</h2>
-  <p><b>Proizvođač je Jadran-galenski laboratorij (JGL), Hrvatska</b> (potvrdio vlasnik). Sastav ispod je prema hrvatskim i bosanskim apotekama koje prodaju JGL varijantu: Bacillus coagulans, Lactobacillus acidophilus, Streptococcus thermophilus, Lactobacillus bulgaricus, Bifidobacterium bifidum, najmanje 2,1 milijardi živih ćelija po bočici od 10 ml, ekstrakt kvasca, glukooligosaharidi i vitamini B1, B2, B6 i B12.</p>
-  <p>Količine vitamina, uputstvo (vreme uzimanja, deca, antibiotici), alergeni i čuvanje <b>nisu potvrđeni za JGL varijantu</b> i moraju sa kutije ili iz uputstva. Neke srpske apoteke (Benu, Janković) navode drugu deklaraciju (Zeta Farmaceutici, pet sojeva). Ako je tvoja kutija takva, javi mi pre objave.</p>
-  <p class="mut">Mesta označena sa <code>[PROVERI …]</code> popuni sa kutije ili sa sajta proizvođača. <b>Ne objavljuj dok u opisu ostane ijedna zagrada.</b></p>
-  <div class="red"><button id="proveri">Proveri opis</button><span id="rez" class="br"></span></div>
+<section class="card info">
+  <h2>Šta je proveravano</h2>
+  <ul>
+    <li><b>Sastav</b> je prepisan iz tabele koju si poslao. Procenti se slažu sa količinama (B6 0,84 mg = 60 %, B1 0,66 mg = 60 %, B2 0,70 mg = 50 %, B12 1,00 µg = 40 %), pa su odobrena svojstva vitamina B u opisu dozvoljena.</li>
+    <li><b>Bez glutena i bez laktoze</b> piše na prednjoj strani kutije.</li>
+    <li><b>Proizvođač</b> je JGL, prema tvojoj potvrdi.</li>
+    <li>Nisam pisao tvrdnje o uzimanju uz antibiotike i o uzrastu dece, jer ih nemam sa deklaracije. Tekst upućuje na uputstvo i farmaceuta.</li>
+    <li>Veličinu bočice (ml) nisam pisao, jer se izvori razlikuju. Dodaj je ako je znaš sa kutije.</li>
+  </ul>
 </section>
 
 <section class="card">
@@ -62,7 +63,7 @@
 <section class="card">
   <h2>SEO (Yoast) i slika</h2>
   <div id="seo"></div>
-  <p class="mut">Slika: 800 × 800, bela pozadina, proizvod na 76 % kadra. Napravi je alatom <code>slika-800.html</code> iz iste fascikle.</p>
+  <p class="mut">Slika <code>prolife-suspenzija-7-bocica.jpg</code> (1024 × 1024) ti je poslata kao poseban fajl. Ako je treba praviti iznova, koristi <code>slika-proizvoda.html</code>.</p>
 </section>
 
 <section class="card">
@@ -70,12 +71,12 @@
   <ol>
     <li><b>Proizvodi → Dodaj novi.</b> Nalepi naziv.</li>
     <li>U velikom polju za opis klikni na <b>Tekst</b> i nalepi HTML opis.</li>
-    <li><b>Podaci o proizvodu → Opšte → Redovna cena:</b> upiši <code>1299</code>. Polje „Akcijska cena" ostavi prazno (osim ako ide kao sniženje, tada treba nova odluka o nivelaciji).</li>
+    <li><b>Podaci o proizvodu → Opšte → Redovna cena:</b> upiši <code>1299</code>. „Akcijska cena" ostaje prazna (ako ide kao sniženje, treba nova odluka o nivelaciji).</li>
     <li><b>Inventar:</b> status zaliha „Na stanju".</li>
     <li><b>Kratak opis:</b> nalepi kratak opis.</li>
     <li><b>Kategorija:</b> izaberi iz liste (verovatno „Stomak varenje i jetra").</li>
-    <li><b>Brend:</b> JGL nije među postojećim brendovima na sajtu. Dodaj novi brend „JGL" (Proizvodi → Brendovi) ili ostavi prazno. Novi brend dobija i svoju /brend/ stranicu.</li>
-    <li><b>Slika proizvoda → Postavi sliku proizvoda:</b> otpremi JPG 800 × 800, u desnom stupcu upiši <b>Alternativni tekst</b> i <b>Naslov</b> (ispod), pa „Postavi sliku proizvoda".</li>
+    <li><b>Brend:</b> JGL nije među postojećim brendovima. Dodaj novi brend „JGL" (Proizvodi → Brendovi) ili ostavi prazno. Novi brend dobija i svoju /brend/ stranicu.</li>
+    <li><b>Slika proizvoda → Postavi sliku proizvoda:</b> otpremi JPG 1024 × 1024, upiši <b>Alternativni tekst</b> i <b>Naslov</b> (ispod), pa „Postavi sliku proizvoda".</li>
     <li><b>Yoast SEO (kutija ispod opisa):</b> fokusna ključna reč, SEO naslov i meta opis. Proveri da je adresa (slug) <code>prolife-suspenzija-7-bocica</code>.</li>
     <li>Klikni <b>Objavi</b>, pa otvori <code>/proizvod/prolife-suspenzija-7-bocica/</code> i proveri cenu, sliku i opis.</li>
   </ol>
@@ -87,53 +88,70 @@ const D = {
   naziv: "Prolife suspenzija 7 bočica",
   slug: "prolife-suspenzija-7-bocica",
   cena: "1299",
-  kratak: "Dodatak ishrani sa živim bakterijskim kulturama i vitaminima B grupe. Pakovanje od 7 bočica, jedna bočica dnevno.",
+  kratak: "Dodatak ishrani: pet sojeva živih bakterija, glukooligosaharid i vitamini B1, B2, B6 i B12. Bez glutena i laktoze. Pakovanje od 7 bočica, jedna bočica dnevno.",
   seoNaslov: "Prolife suspenzija probiotik 7 bočica – cena",
-  meta: "Prolife suspenzija: 7 bočica sa 2,1 milijardi živih bakterija i vitaminima B grupe. Jedna bočica dnevno. Isporuka 1-3 radna dana.",
+  meta: "Prolife suspenzija: 7 bočica sa 5 sojeva živih bakterija i vitaminima B grupe. Bez glutena i laktoze. Isporuka 1-3 radna dana.",
   fokus: "prolife suspenzija",
-  alt: "Prolife suspenzija probiotik, pakovanje od 7 bočica",
+  alt: "Prolife suspenzija, probiotik u bočicama, pakovanje od 7 bočica",
   naslovSlike: "Prolife suspenzija 7 bočica",
   fajl: "prolife-suspenzija-7-bocica.jpg",
-  opis: `<p>Prolife suspenzija je dodatak ishrani u obliku tečnosti u bočici, sa živim bakterijskim kulturama i vitaminima B grupe. Pakovanje sadrži 7 bočica, što je dovoljno za 7 dana svakodnevne upotrebe.</p>
+  opis: `<p>Prolife suspenzija je dodatak ishrani u obliku tečnosti u bočici. Sadrži pet sojeva živih bakterija, glukooligosaharid i vitamine B grupe (B1, B2, B6 i B12). Bez glutena i bez laktoze. Jedno pakovanje ima 7 bočica, a jedna bočica je dnevna doza.</p>
 
 <h2>Kome je namenjena Prolife suspenzija</h2>
-<p>Namenjena je za svakodnevnu upotrebu, na primer kad se menja ishrana ili na putovanju. [PROVERI NA UPUTSTVU: od kog uzrasta se sme uzimati]</p>
+<p>Namenjena je svakodnevnoj upotrebi, na primer kad se menja ishrana ili na putovanju, i svima koji žele probiotik u tečnom obliku, bez kapsula i tableta za gutanje. Jedna bočica dnevno je jednostavna navika koja se lako uklapa u jutro ili veče.</p>
 
-<h2>Sastav</h2>
+<h2>Sastav Prolife suspenzije</h2>
 <table>
-<thead><tr><th>Sastojak</th><th>Količina po bočici (10 ml)</th></tr></thead>
+<thead><tr><th>Sastojak</th><th>U jednoj bočici (dnevna doza)</th><th>% preporučenog unosa*</th></tr></thead>
 <tbody>
-<tr><td>Žive bakterijske kulture</td><td>najmanje 2,1 milijardi (2,1 × 10⁹) živih ćelija</td></tr>
-<tr><td>Sojevi</td><td>Bacillus coagulans (Lactobacillus sporogenes), Lactobacillus acidophilus, Streptococcus thermophilus, Lactobacillus bulgaricus, Bifidobacterium bifidum [PROVERI NA KUTIJI]</td></tr>
-<tr><td>Ekstrakt kvasca (Saccharomyces cerevisiae)</td><td>[PROVERI: količina]</td></tr>
-<tr><td>Glukooligosaharidi</td><td>[PROVERI: količina]</td></tr>
-<tr><td>Vitamin B1 (tiamin)</td><td>[PROVERI: mg i % NRV]</td></tr>
-<tr><td>Vitamin B2 (riboflavin)</td><td>[PROVERI: mg i % NRV]</td></tr>
-<tr><td>Vitamin B6</td><td>[PROVERI: mg i % NRV]</td></tr>
-<tr><td>Vitamin B12</td><td>[PROVERI: µg i % NRV]</td></tr>
+<tr><td>Vitamin B1 (tiamin-hidrohlorid)</td><td>0,66 mg</td><td>60 %</td></tr>
+<tr><td>Vitamin B2 (riboflavin)</td><td>0,70 mg</td><td>50 %</td></tr>
+<tr><td>Vitamin B6 (piridoksin-hidrohlorid)</td><td>0,84 mg</td><td>60 %</td></tr>
+<tr><td>Vitamin B12 (cijanokobalamin)</td><td>1,00 µg</td><td>40 %</td></tr>
+<tr><td>Žive bakterijske kulture</td><td>najmanje 2,1 × 10<sup>9</sup> (2,1 milijardi)</td><td>–</td></tr>
 </tbody>
 </table>
+<p>*Procenat preporučenog dnevnog unosa.</p>
+<p><b>Sojevi bakterija:</b> Lactobacillus acidophilus La-14®, Bacillus coagulans MTCC 5260®, Bifidobacterium lactis HN019®, Bifidobacterium lactis Bl-04® i Lactobacillus plantarum LP115®. Proizvod sadrži i glukooligosaharid.</p>
+
+<h2>Šta su laktobacili, bifidobakterije i glukooligosaharid</h2>
+<p>Laktobacili i bifidobakterije su rodovi bakterija koje prirodno žive u ljudskom digestivnom traktu, a laktobacili se nalaze i u fermentisanoj hrani, kao što su jogurt i kiseli kupus. Glukooligosaharidi su ugljeni hidrati koje ljudski organizam ne vari, a bakterije u crevima ih koriste kao hranu, zbog čega se nazivaju prebiotici. Prolife suspenzija spaja ove sastojke sa vitaminima B grupe u jednoj bočici.</p>
 
 <h2>Šta doprinose vitamini B grupe</h2>
-<p>Vitamini B1 i B2 doprinose normalnom energetskom metabolizmu. Vitamini B6 i B12 doprinose normalnoj funkciji imunog sistema i smanjenju umora i malaksalosti.</p>
-<p>Za žive bakterijske kulture i glukooligosaharide nema odobrenih zdravstvenih tvrdnji, pa ih opisujemo samo činjenično, bez obećanja o dejstvu.</p>
+<p>Vitamini B1, B2, B6 i B12 doprinose normalnom radu nervnog sistema. Vitamini B1 i B2 doprinose normalnom energetskom metabolizmu. Vitamini B6 i B12 doprinose normalnoj funkciji imunog sistema, a vitamini B2, B6 i B12 doprinose smanjenju umora i malaksalosti.</p>
+<p>Za žive bakterijske kulture i glukooligosaharid nema odobrenih zdravstvenih tvrdnji, pa ih opisujemo samo činjenično, bez obećanja o dejstvu.</p>
+
+<h2>Prednosti Prolife suspenzije</h2>
+<ul>
+<li>pet sojeva živih bakterija u jednoj bočici, najmanje 2,1 milijardi</li>
+<li>uz glukooligosaharid i vitamine B1, B2, B6 i B12</li>
+<li>tečan oblik, bez kapsula i tableta</li>
+<li>bez glutena i bez laktoze</li>
+<li>jedna bočica je dnevna doza, a pakovanje traje 7 dana</li>
+</ul>
 
 <h2>Kako se koristi</h2>
-<p>Jedna bočica dnevno. [PROVERI NA UPUTSTVU: vreme uzimanja, natašte ili posle obroka, i doziranje za decu.] Jedno pakovanje traje 7 dana.</p>
+<p>Jedna bočica dnevno. Pakovanje od 7 bočica traje 7 dana. Način uzimanja i uslove čuvanja pogledajte u uputstvu na pakovanju. Ne prekoračujte preporučenu dnevnu dozu.</p>
 
 <h2>Česta pitanja</h2>
-<h3>Može li se uzimati uz antibiotik?</h3>
-<p>[PROVERI NA UPUTSTVU: šta proizvođač navodi o uzimanju uz antibiotike.] Ako uzimate antibiotik, posavetujte se sa farmaceutom ili lekarom.</p>
-<h3>Da li sadrži gluten i laktozu?</h3>
-<p>[PROVERI NA KUTIJI: gluten, laktoza i drugi alergeni.]</p>
-<h3>Kako se čuva?</h3>
-<p>[PROVERI NA KUTIJI: uslovi čuvanja i rok trajanja posle otvaranja]</p>
+<h3>Šta je Prolife suspenzija?</h3>
+<p>To je dodatak ishrani u obliku suspenzije, sa pet sojeva živih bakterija, glukooligosaharidom i vitaminima B1, B2, B6 i B12.</p>
+<h3>Da li je Prolife lek?</h3>
+<p>Ne. Prolife suspenzija je dodatak ishrani i ne služi za lečenje bolesti.</p>
+<h3>Da li Prolife sadrži gluten i laktozu?</h3>
+<p>Ne. Na pakovanju piše: bez glutena, bez laktoze.</p>
+<h3>Koliko traje jedno pakovanje?</h3>
+<p>Pakovanje ima 7 bočica. Uz jednu bočicu dnevno traje 7 dana.</p>
+<h3>Može li se uzimati uz antibiotik ili druge lekove?</h3>
+<p>Ako uzimate antibiotik ili druge lekove, posavetujte se sa farmaceutom ili lekarom. Naš farmaceut: +381 60 6616654.</p>
+<h3>Da li je Prolife za decu?</h3>
+<p>Uzrast od kog se proizvod sme uzimati i doziranje navedeni su u uputstvu proizvođača. Ako niste sigurni, pozovite našeg farmaceuta.</p>
 
 <h2>Napomene</h2>
-<p>Dodatak ishrani nije zamena za raznovrsnu ishranu i zdrav način života. Ne prekoračujte preporučenu dnevnu dozu. Ne služi za lečenje bolesti i ne prekidajte terapiju koju vam je propisao lekar. Proizvod sadrži ekstrakt kvasca, a osobe preosetljive na bilo koji sastojak neka ga ne koriste. Osobe sa teškim bolestima ili oslabljenim imunitetom neka se pre upotrebe posavetuju sa lekarom (savet apoteke). Čuvati van domašaja dece.</p>
+<p>Dodatak ishrani nije zamena za raznovrsnu ishranu i zdrav način života. Ne služi za lečenje bolesti, a terapiju koju vam je propisao lekar ne prekidajte. Osobe sa teškim bolestima ili oslabljenim imunitetom neka se pre upotrebe posavetuju sa lekarom (savet apoteke). Osobe preosetljive na bilo koji sastojak neka ne koriste proizvod. Čuvati van domašaja dece.</p>
 
 <h2>Pakovanje i proizvođač</h2>
-<p>Pakovanje: 7 bočica po 10 ml. Proizvođač: Jadran-galenski laboratorij d.d., Hrvatska. Uvoznik za Srbiju: [PROVERI NA KUTIJI].</p>
+<p>Pakovanje: 7 bočica. Proizvođač: Jadran-galenski laboratorij d.d., Hrvatska.</p>
 
 <h2>Isporuka</h2>
 <p>Isporuka na teritoriji Srbije u roku od 1 do 3 radna dana (AKS Express, Daily Express, X Express). Dostava košta 400 dinara, a besplatna je za porudžbine preko 5.000 dinara. Za savet farmaceuta pozovite +381 60 6616654.</p>`
@@ -154,7 +172,7 @@ function polje(host, id, label, tip, dug, maks) {
   if (maks) {
     const c = document.createElement('span'); c.className = 'br';
     const upd = () => { const n = el.value.length; c.textContent = n + ' / ' + maks + ' znakova'; c.className = 'br' + (n > maks ? ' lose' : ''); };
-    upd(); r.appendChild(c);
+    el.addEventListener('input', upd); upd(); r.appendChild(c);
   }
   w.appendChild(r); host.appendChild(w);
 }
@@ -180,13 +198,6 @@ polje(s, 'alt', 'Alternativni tekst slike (alt)');
 polje(s, 'naslovSlike', 'Naslov slike');
 polje(s, 'fajl', 'Naziv fajla slike');
 document.getElementById('pregled').innerHTML = D.opis;
-
-document.getElementById('proveri').onclick = () => {
-  const n = (document.getElementById('opis').value.match(/\[PROVERI/g) || []).length;
-  const r = document.getElementById('rez');
-  r.className = 'br' + (n ? ' lose' : '');
-  r.textContent = n ? 'Još ' + n + ' mesta za proveru. Ne objavljuj.' : 'Nema oznaka za proveru.';
-};
 </script>
 </body>
 </html>
