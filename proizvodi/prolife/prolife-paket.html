@@ -40,15 +40,10 @@
 <p class="mut">Gotovi tekstovi za jedan proizvod. Svako polje ima dugme „Kopiraj". Redosled unosa je pod „Koraci u adminu".</p>
 
 <section class="card upoz">
-  <h2>Proveri pre objave – sastav nije potvrđen</h2>
-  <p>Našao sam <b>dve različite deklaracije</b> za proizvod istog imena. Na kutiji koju imaš (ili u portalu Phoenixa/Sopharme) proveri koja je tvoja:</p>
-  <table>
-    <tr><th></th><th>Varijanta A (srpske apoteke: Benu, Janković)</th><th>Varijanta B (hrvatske i bosanske apoteke)</th></tr>
-    <tr><td>Proizvođač</td><td>Zeta Farmaceutici</td><td>Jadran-galenski laboratorij (JGL), Hrvatska</td></tr>
-    <tr><td>Sojevi</td><td>L. acidophilus La-14, B. coagulans BC4, B. lactis HN019, B. lactis Bl-04, L. plantarum LP115</td><td>B. coagulans, L. acidophilus, S. thermophilus, L. bulgaricus, B. bifidum + ekstrakt kvasca</td></tr>
-    <tr><td>Pakovanje</td><td>7 bočica, negde piše 10 ml, negde 8 ml</td><td>7 bočica po 10 ml</td></tr>
-  </table>
-  <p class="mut">Tekstovi ispod su pisani po varijanti A. Ako kutija pokazuje B, zameni samo red „Sojevi" i proizvođača. Mesta označena sa <code>[PROVERI …]</code> moraju da se popune sa kutije ili sa sajta proizvođača. <b>Ne objavljuj dok u opisu ostane ijedna zagrada.</b></p>
+  <h2>Proveri pre objave – sastav nije potvrđen sa kutije</h2>
+  <p><b>Proizvođač je Jadran-galenski laboratorij (JGL), Hrvatska</b> (potvrdio vlasnik). Sastav ispod je prema hrvatskim i bosanskim apotekama koje prodaju JGL varijantu: Bacillus coagulans, Lactobacillus acidophilus, Streptococcus thermophilus, Lactobacillus bulgaricus, Bifidobacterium bifidum, najmanje 2,1 milijardi živih ćelija po bočici od 10 ml, ekstrakt kvasca, glukooligosaharidi i vitamini B1, B2, B6 i B12.</p>
+  <p>Količine vitamina, uputstvo (vreme uzimanja, deca, antibiotici), alergeni i čuvanje <b>nisu potvrđeni za JGL varijantu</b> i moraju sa kutije ili iz uputstva. Neke srpske apoteke (Benu, Janković) navode drugu deklaraciju (Zeta Farmaceutici, pet sojeva). Ako je tvoja kutija takva, javi mi pre objave.</p>
+  <p class="mut">Mesta označena sa <code>[PROVERI …]</code> popuni sa kutije ili sa sajta proizvođača. <b>Ne objavljuj dok u opisu ostane ijedna zagrada.</b></p>
   <div class="red"><button id="proveri">Proveri opis</button><span id="rez" class="br"></span></div>
 </section>
 
@@ -79,7 +74,7 @@
     <li><b>Inventar:</b> status zaliha „Na stanju".</li>
     <li><b>Kratak opis:</b> nalepi kratak opis.</li>
     <li><b>Kategorija:</b> izaberi iz liste (verovatno „Stomak varenje i jetra").</li>
-    <li><b>Brend:</b> u listi brendova nema ni Zeta Farmaceutici ni JGL. Ostavi prazno ili dodaj novi brend kad potvrdiš proizvođača.</li>
+    <li><b>Brend:</b> JGL nije među postojećim brendovima na sajtu. Dodaj novi brend „JGL" (Proizvodi → Brendovi) ili ostavi prazno. Novi brend dobija i svoju /brend/ stranicu.</li>
     <li><b>Slika proizvoda → Postavi sliku proizvoda:</b> otpremi JPG 800 × 800, u desnom stupcu upiši <b>Alternativni tekst</b> i <b>Naslov</b> (ispod), pa „Postavi sliku proizvoda".</li>
     <li><b>Yoast SEO (kutija ispod opisa):</b> fokusna ključna reč, SEO naslov i meta opis. Proveri da je adresa (slug) <code>prolife-suspenzija-7-bocica</code>.</li>
     <li>Klikni <b>Objavi</b>, pa otvori <code>/proizvod/prolife-suspenzija-7-bocica/</code> i proveri cenu, sliku i opis.</li>
@@ -102,14 +97,15 @@ const D = {
   opis: `<p>Prolife suspenzija je dodatak ishrani u obliku tečnosti u bočici, sa živim bakterijskim kulturama i vitaminima B grupe. Pakovanje sadrži 7 bočica, što je dovoljno za 7 dana svakodnevne upotrebe.</p>
 
 <h2>Kome je namenjena Prolife suspenzija</h2>
-<p>Namenjena je odraslima i deci za svakodnevnu upotrebu, na primer kad se menja ishrana, na putovanju ili u periodu kad se uzima antibiotska terapija. Prema uputstvu proizvođača, može se uzimati uz antibiotike.</p>
+<p>Namenjena je za svakodnevnu upotrebu, na primer kad se menja ishrana ili na putovanju. [PROVERI NA UPUTSTVU: od kog uzrasta se sme uzimati]</p>
 
 <h2>Sastav</h2>
 <table>
-<thead><tr><th>Sastojak</th><th>Količina po bočici ([PROVERI: 10 ml ili 8 ml])</th></tr></thead>
+<thead><tr><th>Sastojak</th><th>Količina po bočici (10 ml)</th></tr></thead>
 <tbody>
 <tr><td>Žive bakterijske kulture</td><td>najmanje 2,1 milijardi (2,1 × 10⁹) živih ćelija</td></tr>
-<tr><td>Sojevi</td><td>Lactobacillus acidophilus La-14, Bacillus coagulans BC4, Bifidobacterium lactis HN019, Bifidobacterium lactis Bl-04, Lactobacillus plantarum LP115 [PROVERI NA KUTIJI]</td></tr>
+<tr><td>Sojevi</td><td>Bacillus coagulans (Lactobacillus sporogenes), Lactobacillus acidophilus, Streptococcus thermophilus, Lactobacillus bulgaricus, Bifidobacterium bifidum [PROVERI NA KUTIJI]</td></tr>
+<tr><td>Ekstrakt kvasca (Saccharomyces cerevisiae)</td><td>[PROVERI: količina]</td></tr>
 <tr><td>Glukooligosaharidi</td><td>[PROVERI: količina]</td></tr>
 <tr><td>Vitamin B1 (tiamin)</td><td>[PROVERI: mg i % NRV]</td></tr>
 <tr><td>Vitamin B2 (riboflavin)</td><td>[PROVERI: mg i % NRV]</td></tr>
@@ -123,21 +119,21 @@ const D = {
 <p>Za žive bakterijske kulture i glukooligosaharide nema odobrenih zdravstvenih tvrdnji, pa ih opisujemo samo činjenično, bez obećanja o dejstvu.</p>
 
 <h2>Kako se koristi</h2>
-<p>Jedna bočica dnevno. [PROVERI: uputstvo o vremenu uzimanja, natašte ili posle obroka, jer se u izvorima razlikuje.] Deci do dve godine daje se pola sadržaja bočice, a ostatak se čuva u frižideru do sutradan [PROVERI NA UPUTSTVU]. Jedno pakovanje traje 7 dana.</p>
+<p>Jedna bočica dnevno. [PROVERI NA UPUTSTVU: vreme uzimanja, natašte ili posle obroka, i doziranje za decu.] Jedno pakovanje traje 7 dana.</p>
 
 <h2>Česta pitanja</h2>
 <h3>Može li se uzimati uz antibiotik?</h3>
-<p>Prema uputstvu proizvođača, može se primenjivati uz antibiotsku terapiju. Ako uzimate antibiotik, posavetujte se sa farmaceutom ili lekarom.</p>
+<p>[PROVERI NA UPUTSTVU: šta proizvođač navodi o uzimanju uz antibiotike.] Ako uzimate antibiotik, posavetujte se sa farmaceutom ili lekarom.</p>
 <h3>Da li sadrži gluten i laktozu?</h3>
-<p>Prema podacima proizvođača, ne sadrži gluten ni laktozu.</p>
+<p>[PROVERI NA KUTIJI: gluten, laktoza i drugi alergeni.]</p>
 <h3>Kako se čuva?</h3>
 <p>[PROVERI NA KUTIJI: uslovi čuvanja i rok trajanja posle otvaranja]</p>
 
 <h2>Napomene</h2>
-<p>Dodatak ishrani nije zamena za raznovrsnu ishranu i zdrav način života. Ne prekoračujte preporučenu dnevnu dozu. Ne služi za lečenje bolesti i ne prekidajte terapiju koju vam je propisao lekar. Osobe sa teškim bolestima ili oslabljenim imunitetom neka se pre upotrebe posavetuju sa lekarom (savet apoteke). Čuvati van domašaja dece.</p>
+<p>Dodatak ishrani nije zamena za raznovrsnu ishranu i zdrav način života. Ne prekoračujte preporučenu dnevnu dozu. Ne služi za lečenje bolesti i ne prekidajte terapiju koju vam je propisao lekar. Proizvod sadrži ekstrakt kvasca, a osobe preosetljive na bilo koji sastojak neka ga ne koriste. Osobe sa teškim bolestima ili oslabljenim imunitetom neka se pre upotrebe posavetuju sa lekarom (savet apoteke). Čuvati van domašaja dece.</p>
 
 <h2>Pakovanje i proizvođač</h2>
-<p>Pakovanje: 7 bočica. Proizvođač: [PROVERI: Zeta Farmaceutici ili Jadran-galenski laboratorij]. Uvoznik za Srbiju: [PROVERI NA KUTIJI].</p>
+<p>Pakovanje: 7 bočica po 10 ml. Proizvođač: Jadran-galenski laboratorij d.d., Hrvatska. Uvoznik za Srbiju: [PROVERI NA KUTIJI].</p>
 
 <h2>Isporuka</h2>
 <p>Isporuka na teritoriji Srbije u roku od 1 do 3 radna dana (AKS Express, Daily Express, X Express). Dostava košta 400 dinara, a besplatna je za porudžbine preko 5.000 dinara. Za savet farmaceuta pozovite +381 60 6616654.</p>`
